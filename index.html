@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Llamado a lista</title>
+    <!-- <script type="text/javascript" src="js/instascan.min.js"></script> -->
+    <script type="text/javascript" src="js/vue.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/estilos.css">
+  </head>
+  <body>
+    <h1 class="text-center">CONTROL DE ASISTENCIA V.1.0 INEAC</h1>
+    <div id="app" class="container">
+      <div class="row">
+        <div class="col">
+          <video id="preview"></video>
+          <input class="collapse" @change="pasarLista" :value="estudiante">
+        </div>
+        <div class="col">
+          <h1 class="text-center" v-if="listado.length > 0">Estudiantes:</h1>
+          <h1 class="text-center" v-else="lista">Sin estudiantes:</h1>
+          <table class="table table-bordered">
+              <tr>
+                <th>Nombre y apellido:</th>
+                <th>Fecha:</th>
+                <th>Hora:</th>
+              </tr>
+              <tr v-for="item in listado">
+                <td v-text="item.estudiante"></td>
+                <td v-text="item.fecha"></td>
+                <td v-text="item.hora"></td>
+              </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="js/aplicacion.js" charset="utf-8"></script>
+  </body>
+</html>
