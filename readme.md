@@ -29,3 +29,4 @@ Uso:
 
 -> sientete libre de usar el script en tu proyecto.
 -> puntuar y dar creditos si te ahorra algunos clicks.
+-> Cualquier ayuda fix o ajuste sera bienvenido.
