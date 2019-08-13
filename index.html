@@ -19,7 +19,7 @@
         <div class="col">
           <h1 class="text-center" v-if="listado.length > 0">Estudiantes:</h1>
           <h1 class="text-center" v-else="lista">Sin estudiantes:</h1>
-          <table class="table table-bordered">
+          <table class="table table-bordered" id="tblReporte">
               <tr>
                 <th>Nombre y apellido:</th>
                 <th>Fecha:</th>
@@ -31,9 +31,26 @@
                 <td v-text="item.hora"></td>
               </tr>
           </table>
+          <button onclick="descargarExcel()" class="btn btn-primary">Descargar asistencia</button>
         </div>
       </div>
     </div>
     <script src="js/aplicacion.js" charset="utf-8"></script>
+    <script>
+      function descargarExcel() {
+        //Creamos un Elemento Temporal en forma de enlace
+        var tmpElemento = document.createElement('a');
+        // obtenemos la información desde el div que lo contiene en el html
+        // Obtenemos la información de la tabla
+        var data_type = 'data:application/vnd.ms-excel';
+        var tabla_div = document.getElementById('tblReporte');
+        var tabla_html = tabla_div.outerHTML.replace(/ /g, '%20');
+        tmpElemento.href = data_type + ', ' + tabla_html;
+        //Asignamos el nombre a nuestro EXCEL
+        tmpElemento.download = 'Nombre_De_Mi_Excel.xls';
+        // Simulamos el click al elemento creado para descargarlo
+        tmpElemento.click();
+      }
+    </script>
   </body>
 </html>
